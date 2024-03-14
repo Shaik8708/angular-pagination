@@ -94,10 +94,8 @@ export class AppComponent {
     age: '30',
   }];
 
- 
-
   currentPage = 1;
-  totalPages = this.staticData.length%5 === 0 ? this.staticData.length/5 : Math.round(this.staticData.length/5) +1; // Assuming there are 10 pages
+  totalPages = this.staticData.length%5 === 0 ? this.staticData.length/5 : Math.round(this.staticData.length/5) ; // Assuming there are 10 pages
   recordsPerPage = 5; // Assuming 5 records per page
   allRecords: any[] = this.staticData; // Assuming allRecords is an array containing all records
   displayedRecords: any[] = []; // Records to display for the current page
@@ -123,6 +121,7 @@ export class AppComponent {
   updateDisplayedRecords() {
     const startIndex = (this.currentPage - 1) * this.recordsPerPage;
     const endIndex = Math.min(startIndex + this.recordsPerPage, this.allRecords.length);
-    this.displayedRecords = this.allRecords.slice(startIndex, endIndex);
+      this.displayedRecords = this.allRecords.slice(startIndex, endIndex);
+    
   }
 }
